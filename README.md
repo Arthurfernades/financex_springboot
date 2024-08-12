@@ -1,9 +1,3 @@
-# Trabalho Final Daves
-
-
-## Nome do Projeto
-Aplicativo Poupe Mais
-
 ## Descrição
 O objetivo deste aplicativo é ajudar os usuários a gerenciarem seus gastos de maneira eficiente. Com ele, é possível 
 registrar todas as despesas e receitas mensais, permitindo ao usuário ter uma visão clara de suas finanças. Dessa forma,
