@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{template.html}">
+<body>
+    <h1 layout:fragment="titulo">
+        Lista de Usuário
+    </h1>
+    <div class="container" layout:fragment="main">
+        <table class="table">
+            <thead>
+                <th>Nome</th>
+                <th>Login</th>
+                <th>E-mail</th>
+                <th>Tipo</th>
+                <th></th>
+                <th></th>
+            </thead>
+            <tbody>
+            <tr th:each="u : ${lista}" class="row-exibe-teste box-shadow">
+                <td th:text="${u.getNome()}">-</td>
+                <td th:text="${u.getLogin()}">-</td>
+                <td th:text="${u.getEmail()}">-</td>
+                <td th:text="${u.getTipo()}">-</td>
+                <td class="table-actions">
+                    <div class="dropdown">
+                        <button class="btn btn-link" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <ion-icon name="cog-outline"></ion-icon>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 30px, 0px);">
+                            <a class="dropdown-item" th:href="@{/{tipo}/alterar/{id}(id=${u.getId()}, tipo=${u.getTipo()})}">Alterar</a>
+                            <a class="dropdown-item" th:href="@{/{tipo}/{id}(id=${u.getId()}, tipo=${u.getTipo()})}">Excluir</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

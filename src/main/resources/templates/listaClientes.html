@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{template.html}">
+<body>
+<h1 layout:fragment="titulo">
+    Lista de Usuário
+</h1>
+<div class="container" layout:fragment="main">
+    <table class="table">
+        <thead>
+        <th>Nome</th>
+        <th>Receita</th>
+        <th>Gastos</th>
+        <th>Meta</th>
+        <th></th>
+        <th></th>
+        </thead>
+        <tbody>
+        <tr th:each="c : ${lista}" class="row-exibe-teste box-shadow">
+            <td><a th:text="${c.getNome()}" th:href="@{/cliente/gastosCliente/{id} (id =${c.getId()})}">-</a></td>
+            <td th:text="${c.getReceita()}">-</td>
+            <td th:text="${c.getGastosTotais()}">-</td>
+            <td th:text="${c.getMeta()}">-</td>
+            <td><a th:href="@{/mensagem/criar/{id} (id=${c.getId()})}">Enviar Mensagem</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

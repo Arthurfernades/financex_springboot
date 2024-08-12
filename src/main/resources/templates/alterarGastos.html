@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{template.html}">
+<body>
+<div class="container-div-main" layout:fragment="main">
+    <form th:action="@{/gastos/{id} (id=*{id})}" th:object="${gastos}" method="post" class="form form-container">
+        <p class="title">Alterar Gasto</p>
+        <div class="input-group-styled">
+            <label for="valor">Valor:</label>
+            <input type="number" step="0.01" min="0.01" name="valor" id="valor" th:field="*{valor}" placeholder="Valor do Gasto">
+        </div>
+        <div class="input-group-styled">
+            <label for="descricao">Descrição:</label>
+            <input type="text" name="descricao" id="descricao" th:field="*{descricao}" placeholder="Breve descrição">
+        </div>
+        <div class="input-group-styled">
+            <label for="eCategoriaGastos">Categoria do gasto:</label>
+            <select class="form-select" th:field="*{eCategoriaGastos}">
+                <option th:each="categoria : ${T(br.com.financias.trabalho.model.enums.ECategoriaGastos).values()}"
+                        th:value="${categoria}" th:text="${categoria}"></option>
+            </select>
+        </div>
+        <button class="sign">Salvar Alterações</button>
+        <p th:text="${messagem}"></p>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-rows: auto;
+}
+
+header {
+    margin-bottom: 40px;
+}
+
+header img {
+    width: 100px;
+}
+
+.container-div-main {
+    display: grid;
+}
+
+.navbar-dark {
+    background-color: rgba(17, 24, 39, 1);
+}
+
+#form-div {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.08);
+}
+
+#form-div-clone {
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.08);
+}
+
+#form-div-avaliaco {
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.08);
+}
+
+.botoes-ficha {
+    display: flex;
+    align-content: space-evenly;
+}
+
+#navbar {
+    justify-content: space-evenly;
+}
+
+/* Estilo para a lista de usuários */
+.list-unstyled {
+    padding-left: 0;
+}
+
+/* Estilo para cada item da lista */
+.list-unstyled li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+/* Estilo para o ícone de usuário */
+.list-unstyled ion-icon[name="person-circle-outline"] {
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+/* Estilo para o ícone de exclusão */
+.list-unstyled ion-icon[name="close-circle-outline"] {
+    color: red;
+    margin-left: auto;
+    font-size: 24px;
+}
+
+.list-unstyled li {
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.08);
+}
+
+.list-unstyled li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.1), 0 8px 30px 0 rgba(0, 0, 0, 0.1);
+}
+
+.botao-estilizado {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+}
+
+#botao-alterar ion-icon {
+    font-size: 24px;
+    color: #007bff;
+}
+
+#botao-excluir ion-icon {
+    font-size: 24px;
+    color: #ff0000;
+}
+
+.container-conteudo img{
+    width: 300px;
+}
+
+footer {
+    margin-top: 40px;
+}
+
+.display-none {
+    display: none;
+}

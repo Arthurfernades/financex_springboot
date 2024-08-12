@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{template.html}"
+>
+<body>
+<div class="container" layout:fragment="main">
+    <h1>Gasto total por categoria</h1>
+    <div>
+        <div id="chart_div"></div>
+        <div id="piechart" style="width: 900px; height: 500px;"></div>
+    </div>
+
+    <script th:inline="javascript">
+        var real_data = /*[[${chartData}]]*/'noValue';
+        $(document).ready(function() {
+            google.charts.load('current', {
+                packages : [ 'corechart', 'bar' ]
+            });
+            google.charts.setOnLoadCallback(drawColumnChart);
+            google.charts.setOnLoadCallback(drawPieChart);
+        });
+        function drawColumnChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Categoria');
+            data.addColumn('number', 'R$');
+            Object.keys(real_data).forEach(function(key) {
+                data.addRow([ key, real_data[key] ]);
+            });
+            var options = {
+                title : 'Gastos',
+                hAxis : {
+                    title : 'Categoria',
+                },
+                vAxis : {
+                    title : 'Gasto'
+                }
+            };
+            var chart = new google.visualization.ColumnChart(document
+                .getElementById('chart_div'));
+            chart.draw(data, options);
+        }
+        function drawPieChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Categoria');
+            data.addColumn('number', 'R$');
+            Object.keys(real_data).forEach(function(key) {
+                data.addRow([ key, real_data[key] ]);
+            });
+            var options = {
+                title : 'Gastos',
+                is3D: true
+            };
+            var chart = new google.visualization.PieChart(document
+                .getElementById('piechart'));
+            chart.draw(data, options);
+        }
+    </script>
+</div>
+</body>
+</html>

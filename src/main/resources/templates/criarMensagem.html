@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{template.html}"
+>
+<body>
+<div class="container-div-main" layout:fragment="main">
+    <form method="post" th:action="@{/mensagem/criar}" class="form form-container" th:object="${mensagem}">
+        <p class="title">Criação de mensagem</p>
+        <div class="input-group-styled">
+            <label>Escreva a mensagem :</label>
+            <input type="text" name="texto" id="valor" th:field="*{mensage}" placeholder="Mensagem para cliente">
+            <input type="hidden" th:field="*{clienteId}" >
+        </div>
+
+        <button class="sign">Cadastrar</button>
+        <p th:text="${messagem}"></p>
+    </form>
+</div>
+</body>
+</html>

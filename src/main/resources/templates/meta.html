@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{template.html}"
+>
+<body>
+<div class="container-div-main" layout:fragment="main">
+    <form method="post" th:action="@{/cliente/meta}" class="form form-container" th:object="${cliente}">
+        <p class="title">Registro de meta</p>
+        <div class="input-group-styled">
+            <label for="valor">Registrar meta :</label>
+            <input type="number" name="valor" step="0.01" min="0.01" id="valor" th:field="*{meta}" placeholder="Valor da Receita">
+        </div>
+        <button class="sign">Registrar</button>
+        <p th:text="${messagem}"></p>
+    </form>
+</div>
+</body>
+</html>

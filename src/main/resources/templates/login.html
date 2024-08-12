@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{template.html}"
+>
+<body>
+<div class="container-div-main" layout:fragment="main">
+  <form th:action="@{/login}" method="post" class="form form-container">
+    <p class="title">Login</p>
+    <div class="input-group-styled">
+      <label>Login:</label>
+      <input name="username" id="login" placeholder="login">
+    </div>
+    <div class="input-group-styled">
+      <label>Senha:</label>
+      <input type="password" name="password" id="senha" placeholder="Senha">
+    </div>
+    <button type="submit" class="sign">Acessar</button>
+    <div th:if="${param.error}">
+      E-mail ou senha incorreta!
+    </div>
+    <p th:text="${messagem}"></p>
+  </form>
+</div>
+</body>
+</html>

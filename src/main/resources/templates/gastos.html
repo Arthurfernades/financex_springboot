@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{template.html}"
+>
+<body>
+<div class="container-div-main" layout:fragment="main">
+    <form th:action="@{/gastos/salvar}" th:object="${gastos}" method="post" class="form form-container">
+        <p class="title">Cadastro de novo Gasto</p>
+        <div class="input-group-styled">
+            <label for="valor">Valor:</label>
+            <input type="number" name="valor" id="valor" step="0.01" min="0.01" th:field="*{valor}" placeholder="Valor do Gasto">
+        </div>
+        <div class="input-group-styled">
+            <label for="descricao">Descrição:</label>
+            <input type="text" name="descricao" id="descricao" th:field="*{descricao}" placeholder="Breve descrição">
+        </div>
+        <div class="input-group-styled">
+            <label for="valor">Categoria do gasto:</label>
+            <select class="form-select" th:field="*{categoria}" >
+                <option value="CONTAS">CONTAS</option>
+                <option value="SAUDE">SAUDE</option>
+                <option value="COMIDA">COMIDA</option>
+                <option value="TRANSPORTE">TRANSPORTE</option>
+                <option value="INVESTIMENTO">INVESTIMENTO</option>
+                <option value="DOACAO">DOACAO</option>
+                <option value="LAZER">LAZER</option>
+                <option value="ASSINATURAS">ASSINATURAS</option>
+                <option value="EDUCACAO">EDUCACAO</option>
+                <option value="OUTROS">OUTROS</option>
+            </select>
+        </div>
+        <button class="sign">Cadastrar</button>
+        <p th:text="${messagem}"></p>
+    </form>
+</div>
+</body>
+</html>
